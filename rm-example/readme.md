@@ -1,3 +1,11 @@
+[python example](bestpractice.py):
+to illustrate
+[best practices](http://cecileane.github.io/computingtools/pages/notes0906-bestpractices.html).  
+file extension is not required, but useful to tell the text editor
+how to color the file, for example.
+
+---
+
 example for [here](http://cecileane.github.io/computingtools/pages/notes0906-intro-shell.html):
 "Unix is like a chainsaw"
 
