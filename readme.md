@@ -13,6 +13,6 @@ data for running scripts used during lecture
   with outgroups removed. example for
   [here](http://cecileane.github.io/computingtools/pages/notes1004.html#cut),
   one-liner with `cut` to extract one column of data
-- [table of SNPs](tableofSNPs.csv): example for
+- [table of SNPs](tableofSNPs): example for
   [here](http://cecileane.github.io/computingtools/pages/notes1004.html#sed),
   one-liner with `sed`
