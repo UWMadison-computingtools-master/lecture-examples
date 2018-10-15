@@ -16,3 +16,5 @@ data for running scripts used during lecture
 - [table of SNPs](tableofSNPs): example for
   [here](http://cecileane.github.io/computingtools/pages/notes1004.html#sed),
   one-liner with `sed`
+- remove species with [missing sequences](remove-missing): example for
+  [awk](http://cecileane.github.io/computingtools/pages/notes1013.html), for instance
