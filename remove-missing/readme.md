@@ -15,7 +15,7 @@ needed a way to strip off the sequences made of missing values.
 
 ## data
 
-in `data/`: example files from 3 markers, that is, 3 alignment files,
+in [`data/`](data): example files from 3 markers, that is, 3 alignment files,
 in phylip format:
 
      number_of_samples number_of_sites_in_the_alignment
