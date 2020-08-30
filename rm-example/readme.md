@@ -24,6 +24,12 @@ to revert all these file deletions:
 git checkout -- .
 ```
 
+or, with more recent versions of git:
+
+```bash
+git restore .
+```
+
 ---
 
 how these data files were created:
