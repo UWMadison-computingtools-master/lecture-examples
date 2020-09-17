@@ -19,7 +19,7 @@ Columns:
 - Variant Frequency: proportion of reads having the variant
   (the other reads had the nucleotide in the reference genome).
 
-### problem
+## problem 1
 
 The starting site numbers in the column "Minimum" are written with
 commas to make them more human-readable (example: 1,650 instead of 1650),
@@ -32,12 +32,18 @@ Using commas inside of integers is ridiculous in a data file!
 
 (best practice: write code for humans, write data for computers).
 
-### task
+### task 1
 
-write a one-liner using `sed` to fix the problem:
+write a one-liner using `sed` to fix this problem:
 change every value in the "Minimum" column to eliminate
 - the commas inside the numbers and
 - the quotes around the numbers.
+
+Best practice: **never** modify a data file that a collaborator gave you.
+Even if it's an Excel spreadsheet (when it's easy to fix typos).
+In this example, make your script create a new file,
+assuming that the input file `tableofSNPs.csv` is the "original" data
+for a given project. Make sure your script does not erase it.
 
 <!-- example: sed -i -E 's/"([0-9]*),?([0-9]+),([0-9]{3})"/\1\2\3/' tableofSNPs.csv > tableofSNPs-edited.csv -->
 
@@ -47,9 +53,44 @@ every row has exactly 3 commas (because 4 columns).
 
 <!-- sed -n "s/[^,]//gp" tableofSNPs.csv | sort | uniq -->
 
-### extra task
+## problem 2
 
-To take extra precautions with these unpublished data (so far),
+column 3 ("Coverage") and column 4 ("Variant Frequency")
+contain numbers, but again, these columns have been written
+for humans and not for computers. Namely:
+- in both columns, some cells contain the non-numerical characters
+  `->`, such as on line 7: `CA,"35,516",91 -> 129,34.9% -> 49.5%`.
+- in column 4, percentages include the symbol "%", causing computers
+  to interpret "49.5%" as a string, and not as a number.
+
+### task 2
+
+write a one-liner using `sed` to do a quick fix in columns 3 and 4:
+- change every entry "x -> y" to simply "x" (the first value)
+- eliminate the % signs in column 4.
+
+"best practice" above:
+your command should *not* overwrite the origina data file.
+
+To check that your edited csv file is correct, read it with your
+favorite statistical software package (e.g. R, Julia or Python),
+and check that columns 3 and 4 are both interpreted as integers.
+What is the mean of column 3, and the mean of column 4?
+
+### extra practice
+
+instead of changing "x -> y" to a single value "x"
+and lose information, consider writing a one-liner or script
+to change any "x -> y" to "x,y" and any simple "x" to "x,x".
+This would create 2 extra columns: say
+"Coverage Start" & "Coverage End" instead of the original
+column "Coverage", and
+"Variant Frequency Start" & "Variant Frequency End" instead of
+the original "Variant Frequency".
+
+## problem 3
+
+To take extra precautions with these unpublished data (at the time),
 I permuted the nucleotides in some way. Assume that I changed
 all `T`s to `A`s and all `A`s to `T`s. Write a one-liner using sed to
 permute the nucleotides back and recover the original data
