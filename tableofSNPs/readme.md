@@ -70,7 +70,7 @@ write a one-liner using `sed` to do a quick fix in columns 3 and 4:
 - eliminate the % signs in column 4.
 
 "best practice" above:
-your command should *not* overwrite the origina data file.
+your command should *not* overwrite the original data file.
 
 To check that your edited csv file is correct, read it with your
 favorite statistical software package (e.g. R, Julia or Python),
