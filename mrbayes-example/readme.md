@@ -16,7 +16,7 @@ Run the analysis from the command line like this:
 mb mrBayes-run.nex
 ```
 
-Things to try:
+## things to try
 
 ```
 mb mrBayes-run.nex
@@ -40,3 +40,23 @@ mb mrBayes-run.nex > /dev/null 2> alignedDNA.nex.err
 ps
 bg
 ```
+
+## running analyses on a remote machine
+
+in statistics or CS machines: AFS (Andrew file system)
+has a very strong authentication system
+
+do this below, to run something for as much as 1 month.
+keep this list of commands in your readme file.
+yes: `ssh` twice.
+
+```bash
+ssh darwin00.stat.wisc.edu
+stashticket
+tmux new-session -s mb-analysis
+ssh darwin00
+cd private/st679/classroom-repos/lecture-examples/mrbayes-example/
+mb mrBayes-run.nex > alignedDNA.nex.screenlog &
+```
+
+^a d to detach, `tmux attach` to attach, `tmux list` to list sessions
